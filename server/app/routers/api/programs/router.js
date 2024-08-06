@@ -4,8 +4,10 @@ const router = express.Router();
 
 // programs
 
-const { browse } = require("../../../controllers/programAction");
+const { browse, read } = require("../../../controllers/programAction");
 
-router.get("/", browse);
+router.get("/:", browse);
+
+router.get("/:id", read);
 
 module.exports = router;
