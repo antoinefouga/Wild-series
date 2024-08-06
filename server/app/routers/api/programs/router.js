@@ -6,7 +6,7 @@ const router = express.Router();
 
 const { browse, read } = require("../../../controllers/programAction");
 
-router.get("/:", browse);
+router.get("/", browse);
 
 router.get("/:id", read);
 
