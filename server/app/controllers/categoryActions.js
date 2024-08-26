@@ -1,4 +1,4 @@
-// Some data to make the trick
+const tables = require("../../database/tables");
 
 const categories = [
   {
@@ -13,16 +13,10 @@ const categories = [
 
 // Declare the actions
 
-const cat = (req, res) => {
-  if (req.query.q != null) {
-    const filteredCategory = categories.filter((cate) =>
-      cate.name.includes(req.query.q)
-    );
+const cat = async (req, res) => {
+  const categoriesFromDB = await tables.category.readAll();
 
-    res.json(filteredCategory);
-  } else {
-    res.json(categories);
-  }
+  res.json(categoriesFromDB);
 };
 
 const categorieID = (req, res) => {
